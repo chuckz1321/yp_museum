@@ -13,8 +13,8 @@ spring:
     name: yp_museum
   datasource:
     url: jdbc:db2://dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net:50000/BLUDB
-    username: dpw95833
-    password: 8w-mttxq3js7rd3v
+    username: hjq76626
+    password: 4t59wxmqq1wcf-l8
     driver-class-name: com.ibm.db2.jcc.DB2Driver
 server:
   port: 8766

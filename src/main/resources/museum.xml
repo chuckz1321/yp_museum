@@ -20,24 +20,24 @@
         select
         <include refid="all_fields"/>
         from t_museums
-        where state=#{state}
+        where STATE=#{state}
     </select>
     <select id="getMuseumListByAddress" parameterType="string" resultMap="museum">
         select
         <include refid="all_fields"/>
         from t_museums
-        where address=#{address}
+        where ADDRESS=#{address}
     </select>
     <select id="getMuseumListByCity" parameterType="string" resultMap="museum">
         select
         <include refid="all_fields"/>
         from t_museums
-        where city=#{city}
+        where CITY=#{city}
     </select>
     <select id="getMuseumListByName" parameterType="string" resultMap="museum">
         select
         <include refid="all_fields"/>
         from t_museums
-        where museumName=#{museumName}
+        where NAME_OF_INSTITUTION=#{museumName}
     </select>
 </mapper>

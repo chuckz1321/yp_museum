@@ -1,9 +1,10 @@
-package com.example.yp_museum.Mapper;
+package com.example.yp_museum.service;
 
-import java.util.*;
 import com.example.yp_museum.Entity.Museum;
 
-public interface MuseumMapper {
+import java.util.List;
+
+public interface MuseumSvc {
     public abstract List<Museum> getMuseumListByState(String state);
     public abstract List<Museum> getMuseumListByAddress(String address);
     public abstract List<Museum> getMuseumListByCity(String city);

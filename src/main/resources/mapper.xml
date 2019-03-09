@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+    <resultMap id="museum" type="com.example.yp_museum.Entity.Museum">
+        <result column="NAME_OF_INSTITUTION" jdbcType="VARCHAR" property="museumName"/>
+        <result column="ALTERNATIVE_NAME_OF_INSTITUTION" jdbcType="VARCHAR" property="altMuseumName"/>
+        <result column="PHONE" jdbcType="BIGINT" property="museumPhone" />
+        <result column="WEB_URL" jdbcType="VARCHAR" property="museumURL"/>
+        <result column="MUSEUM_TYPE" jdbcType="VARCHAR" property="museumType"/>
+        <result column="ADDRESS" jdbcType="VARCHAR" property="museumAddress" />
+        <result column="CITY" jdbcType="VARCHAR" property="museumCity"/>
+        <result column="STATE" jdbcType="VARCHAR" property="museumState"/>
+        <result column="ZIP_CODE" jdbcType="VARCHAR" property="museumZip" />
+
+    </resultMap>
+    <sql id="all_fields">
+        NAME_OF_INSTITUTION,ALTERNATIVE_NAME_OF_INSTITUTION,PHONE,WEB_URL,MUSEUM_TYPE,ADDRESS,CITY,STATE,ZIP_CODE
+    </sql>
+    <select id="getMuseumListByState" parameterType="string" resultMap="museum">
+        select
+        <include refid="all_fields"/>
+        from t_museums
+        where state=#{state}
+    </select>
+    <select id="getMuseumListByAddress" parameterType="string" resultMap="museum">
+        select
+        <include refid="all_fields"/>
+        from t_museums
+        where address=#{address}
+    </select>
+    <select id="getMuseumListByCity" parameterType="string" resultMap="museum">
+        select
+        <include refid="all_fields"/>
+        from t_museums
+        where city=#{city}
+    </select>
+    <select id="getMuseumListByName" parameterType="string" resultMap="museum">
+        select
+        <include refid="all_fields"/>
+        from t_museums
+        where museumName=#{museumName}
+    </select>
+</mapper>

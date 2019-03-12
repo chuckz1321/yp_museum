@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/resort", method = RequestMethod.POST)
+@RequestMapping(value = "/museum", method = RequestMethod.POST)
 public class MuseumController {
     @Autowired
     MuseumSvcImpl svc;

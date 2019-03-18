@@ -20,19 +20,19 @@
         select
         <include refid="all_fields"/>
         from t_museums
-        where STATE=#{state}
+        where lower(STATE,'en_US')=lower(#{state},'en_US')
     </select>
     <select id="getMuseumListByAddress" parameterType="string" resultMap="museum">
         select
         <include refid="all_fields"/>
         from t_museums
-        where ADDRESS=#{address}
+        where lower(ADDRESS,'en_US')=lower(#{address},'en_US')
     </select>
     <select id="getMuseumListByCity" parameterType="string" resultMap="museum">
         select
         <include refid="all_fields"/>
         from t_museums
-        where CITY=#{city}
+        where lower(CITY,'en_US')=lower(#{city},'en_US')
     </select>
     <select id="getMuseumListByName" parameterType="string" resultMap="museum">
         select
@@ -49,13 +49,13 @@
         and
     </if>
         <if test="state!= ''">
-            STATE=#{state} and
+            lower(STATE,'en_US')=lower(#{state},'en_US') and
         </if>
         <if test="address!=''">
-            ADDRESS=#{address} and
+            lower(ADDRESS,'en_US')=lower(#{address},'en_US') and
         </if>
         <if test="city!=''">
-            CITY=#{city} and
+            lower(CITY,'en_US')=lower(#{city},'en_US') and
         </if>
         <if test="name!=''">
             NAME_OF_INSTITUTION like CONCAT(CONCAT('%',#{museumName}),'%') and

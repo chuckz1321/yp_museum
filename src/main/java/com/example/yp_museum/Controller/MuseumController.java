@@ -24,7 +24,7 @@ public class MuseumController {
     @CrossOrigin(origins={"*"})
     @RequestMapping(value="/test",method=RequestMethod.GET)
     @ResponseBody
-    public ResponseMessage<List<Museum>> test(@Param("state") String state, @Param("address") String address, @Param("city") String city, @Param("name") String museumName){
+    public ResponseMessage<List<Museum>> test(@RequestParam("state") String state, @RequestParam("address") String address, @RequestParam("city") String city, @RequestParam("name") String museumName){
         ResponseMessage message = new ResponseMessage();
         message.setResponseBody(svc.getMuseumListByMultipleConditions(state, address, city, museumName));
         message.setHttpCode("200");

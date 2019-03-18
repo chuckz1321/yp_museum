@@ -30,4 +30,8 @@ public class MuseumSvcImpl implements MuseumSvc {
         List<Museum> museums = museumDao.getMuseumListByName(museumName);
         return museums;
     }
+    public List<Museum> getMuseumListByMultipleConditions(String state, String address, String city, String museumName){
+        List<Museum> museums = museumDao.getMuseumListByMultipleConditions(state, address, city, museumName);
+        return museums;
+    }
 }

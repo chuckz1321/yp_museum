@@ -13,4 +13,5 @@ public interface MuseumDao {
     public abstract List<Museum> getMuseumListByAddress(@Param("address") String address);
     public abstract List<Museum> getMuseumListByCity(@Param("city") String city);
     public abstract List<Museum> getMuseumListByName(@Param("name") String museumName);
+    public abstract List<Museum> getMuseumListByMultipleConditions(@Param("state") String state, @Param("address") String address, @Param("city") String city, @Param("name") String museumName);
 }

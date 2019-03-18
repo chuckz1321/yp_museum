@@ -38,6 +38,28 @@
         select
         <include refid="all_fields"/>
         from t_museums
-        where NAME_OF_INSTITUTION=#{museumName}
+        where NAME_OF_INSTITUTION like CONCAT(CONCAT('%', #{museumName,jdbcType=VARCHAR}) ,'%')
+    </select>
+    <select id="getMuseumListByMultipleConditions" resultMap="museum">
+        select
+        <include refid="all_fields"/>
+        from t_museums
+        where 1=1 and <if test="name != ''">
+        NAME_OF_INSTITUTION like CONCAT(CONCAT('%',#{museumName}),'%')
+        and
+    </if>
+        <if test="state!= ''">
+            STATE=#{state} and
+        </if>
+        <if test="address!=''">
+            ADDRESS=#{address} and
+        </if>
+        <if test="city!=''">
+            CITY=#{city} and
+        </if>
+        <if test="name!=''">
+            NAME_OF_INSTITUTION like CONCAT(CONCAT('%',#{museumName}),'%') and
+        </if>
+        1=1
     </select>
 </mapper>

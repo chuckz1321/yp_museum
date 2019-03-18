@@ -9,4 +9,5 @@ public interface MuseumSvc {
     public abstract List<Museum> getMuseumListByAddress(String address);
     public abstract List<Museum> getMuseumListByCity(String city);
     public abstract List<Museum> getMuseumListByName(String museumName);
+    public abstract List<Museum> getMuseumListByMultipleConditions(String state, String address, String city, String museumName);
 }

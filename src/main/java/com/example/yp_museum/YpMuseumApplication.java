@@ -10,6 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableSwagger2
+@MapperScan("com.example.yp_museum.Dao")
 public class YpMuseumApplication {
 
     public static void main(String[] args) {

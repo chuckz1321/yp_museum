@@ -40,22 +40,22 @@ public class MuseumController {
         if(subqueries.length == 1){
             String[] queryParts = subqueries[0].split("=");
             switch(queryParts[0]){
-                case "museumState":
+                case "state":
                     if( !queryParts[1].equals("") ) {
                         museums = svc.getMuseumListByState(queryParts[1]);
                     }
                     break;
-                case "museumAddress":
+                case "address":
                     if( !queryParts[1].equals("") ) {
                         museums = svc.getMuseumListByAddress(queryParts[1]);
                     }
                     break;
-                case "museumName":
+                case "name":
                     if (!queryParts[1].equals("")){
                         museums = svc.getMuseumListByName(queryParts[1]);
                     }
                     break;
-                case "museumCity":
+                case "city":
                     if (!queryParts[1].equals("")){
                         museums = svc.getMuseumListByCity(queryParts[1]);
                     }

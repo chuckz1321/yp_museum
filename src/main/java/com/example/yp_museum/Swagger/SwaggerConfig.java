@@ -30,7 +30,7 @@ public class SwaggerConfig {
                 .title("Museum Api")
                 .description("a MicroService")
                 .termsOfServiceUrl("http://www.google.com")
-                .version("0.1")
+                .version("0.2")
                 .build();
     }
 }

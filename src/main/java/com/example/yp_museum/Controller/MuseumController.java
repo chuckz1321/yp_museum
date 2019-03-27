@@ -31,6 +31,7 @@ public class MuseumController {
         return message;
     }
 
+    @CrossOrigin(origins={"*"})
     @ApiOperation(value="search", notes="search museum information ")
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public List<Museum> processQuery(@RequestBody RequestQuery inputQuery){

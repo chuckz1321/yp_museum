@@ -3,7 +3,6 @@ package com.example.yp_museum.Entity;
 import java.math.BigInteger;
 
 public class Museum {
-    private Integer id;
     private String museumName;
     private String altMuseumName;
     private BigInteger  museumPhone;
@@ -13,14 +12,6 @@ public class Museum {
     private String museumCity;
     private String museumState;
     private String museumZip;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getMuseumName() {
         return museumName;

@@ -38,65 +38,37 @@ public class MuseumController {
         String query = inputQuery.getQuery();
         List<Museum> museums = new ArrayList<Museum>();
         String[] subqueries = query.split("&");
-        if(subqueries.length == 1){
-            String[] queryParts = subqueries[0].split("=");
-            switch(queryParts[0]){
-                case "state":
-                    if( !queryParts[1].equals("") ) {
-                        museums = svc.getMuseumListByState(queryParts[1]);
-                    }
-                    break;
+        String state = "";
+        String address = "";
+        String name = "";
+        String city = "";
+        for(String subquery:subqueries) {
+        String[] queryParts = subquery.split("=");
+        switch (queryParts[0]) {
+            case "state":
+                if( !queryParts[1].equals("") ) {
+                    state = queryParts[1];
+                }
+                break;
                 case "address":
                     if( !queryParts[1].equals("") ) {
-                        museums = svc.getMuseumListByAddress(queryParts[1]);
-                    }
-                    break;
-                case "name":
-                    if (!queryParts[1].equals("")){
-                        museums = svc.getMuseumListByName(queryParts[1]);
+                        address = queryParts[1];
                     }
                     break;
                 case "city":
-                    if (!queryParts[1].equals("")){
-                        museums = svc.getMuseumListByCity(queryParts[1]);
+                    if( !queryParts[1].equals("") ){
+                        city = queryParts[1];
                     }
                     break;
-            }
-        }
-        else {
-            String state = "";
-            String address = "";
-            String name = "";
-            String city = "";
-            for(String subquery:subqueries) {
-                String[] queryParts = subquery.split("=");
-                switch (queryParts[0]) {
-
-                    case "state":
-                        if( !queryParts[1].equals("") ) {
-                            state = queryParts[1];
-                        }
-                        break;
-                    case "address":
-                        if( !queryParts[1].equals("") ) {
-                            address = queryParts[1];
-                        }
-                        break;
-                    case "city":
-                        if( !queryParts[1].equals("") ){
-                            city = queryParts[1];
-                        }
-                        break;
-                    case "name":
-                        if( !queryParts[1].equals("") ){
-                            name = queryParts[1];
-                        }
-                        break;
+                case "name":
+                    if( !queryParts[1].equals("") ){
+                        name = queryParts[1];
+                    }
+                    break;
                 }
-            }
-            System.out.println("name:"+name+"city:"+city+"address:"+address+"state:"+state);
-            museums = svc.getMuseumListByMultipleConditions(state,address,city,name);
         }
+        System.out.println("name:"+name+"city:"+city+"address:"+address+"state:"+state);
+        museums = svc.getMuseumListByMultipleConditions(state,address,city,name);
         ResponseMessage<List<Museum>> message = new ResponseMessage<List<Museum>>();
         message.setResponseBody(museums);
         return museums;

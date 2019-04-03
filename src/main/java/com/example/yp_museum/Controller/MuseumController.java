@@ -43,29 +43,31 @@ public class MuseumController {
         String name = "";
         String city = "";
         for(String subquery:subqueries) {
-        String[] queryParts = subquery.split("=");
-        switch (queryParts[0]) {
-            case "state":
-                if( !queryParts[1].equals("") ) {
-                    state = queryParts[1];
+            String[] queryParts = subquery.split("=");
+            if( queryParts.length > 1 ) {
+                switch (queryParts[0]) {
+                    case "state":
+                        if (!queryParts[1].equals("")) {
+                            state = queryParts[1];
+                        }
+                        break;
+                    case "address":
+                        if (!queryParts[1].equals("")) {
+                            address = queryParts[1];
+                        }
+                        break;
+                    case "city":
+                        if (!queryParts[1].equals("")) {
+                            city = queryParts[1];
+                        }
+                        break;
+                    case "name":
+                        if (!queryParts[1].equals("")) {
+                            name = queryParts[1];
+                        }
+                        break;
                 }
-                break;
-                case "address":
-                    if( !queryParts[1].equals("") ) {
-                        address = queryParts[1];
-                    }
-                    break;
-                case "city":
-                    if( !queryParts[1].equals("") ){
-                        city = queryParts[1];
-                    }
-                    break;
-                case "name":
-                    if( !queryParts[1].equals("") ){
-                        name = queryParts[1];
-                    }
-                    break;
-                }
+            }
         }
         System.out.println("name:"+name+"city:"+city+"address:"+address+"state:"+state);
         museums = svc.getMuseumListByMultipleConditions(state,address,city,name);
